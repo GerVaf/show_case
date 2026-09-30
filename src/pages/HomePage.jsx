@@ -184,7 +184,15 @@ export default function HomePage() {
 
       <section className="defer-section page-shell border-x border-t border-ink/20 px-5 py-24 text-center md:px-8 md:py-32">
         <p className="eyebrow mb-8">Build something with intent</p>
-        <a className="contact-link" href="mailto:justlwint@gmail.com">Let’s talk.</a>
+        <a className="contact-link" href="mailto:hello@thantzinmin.cloud">Let’s talk.</a>
+        <div>
+          <a
+            className="mt-7 inline-block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted underline decoration-ink/30 underline-offset-4 transition-colors hover:text-blue focus-visible:text-blue"
+            href="mailto:hello@thantzinmin.cloud"
+          >
+            hello@thantzinmin.cloud ↗
+          </a>
+        </div>
       </section>
     </>
   )

@@ -117,7 +117,7 @@ function Footer() {
         <div className="flex flex-wrap gap-x-5 gap-y-2">
           <a className="hover:text-ink" href="https://justlwint.com" target="_blank" rel="noreferrer">Just Lwint ↗</a>
           <a className="hover:text-ink" href="https://github.com/GerVaf" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a className="hover:text-ink" href="mailto:justlwint@gmail.com">Email ↗</a>
+          <a className="hover:text-ink" href="mailto:hello@thantzinmin.cloud">hello@thantzinmin.cloud ↗</a>
         </div>
       </div>
     </footer>
