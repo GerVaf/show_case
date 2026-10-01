@@ -168,6 +168,25 @@ export default function HomePage() {
             <ArrowUpRightIcon aria-hidden="true" size={11} weight="bold" />
           </a>
         </div>
+        <div className="mx-auto mt-12 grid max-w-5xl border border-ink/20 text-left md:grid-cols-3">
+          {[
+            ['Direct email', 'thantzinmin667@gmail.com', 'mailto:thantzinmin667@gmail.com'],
+            ['Phone', '09 425 212 523', 'tel:+959425212523'],
+            ['Just Lwint / Collaboration', 'justlwint@gmail.com', 'mailto:justlwint@gmail.com'],
+          ].map(([label, value, href], index) => (
+            <a
+              className={`group flex min-h-28 flex-col justify-between gap-5 p-5 transition-colors hover:bg-ink hover:text-paper focus-visible:bg-ink focus-visible:text-paper md:p-6 ${index < 2 ? 'border-b border-ink/20 md:border-r md:border-b-0' : ''}`}
+              href={href}
+              key={label}
+            >
+              <span className="eyebrow text-ink-faint transition-colors group-hover:text-paper/60 group-focus-visible:text-paper/60">{label}</span>
+              <span className="flex items-center justify-between gap-3 font-display text-base font-medium tracking-[-0.025em] sm:text-lg">
+                {value}
+                <ArrowUpRightIcon aria-hidden="true" className="shrink-0 text-blue" size={14} weight="bold" />
+              </span>
+            </a>
+          ))}
+        </div>
       </section>
     </>
   )
