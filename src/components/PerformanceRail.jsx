@@ -48,8 +48,8 @@ export default function PerformanceRail() {
 
     if (!section || !pin || !viewport || !track || !progress) return undefined
 
-    const desktop = window.matchMedia('(min-width: 1024px) and (prefers-reduced-motion: no-preference)')
-    if (!desktop.matches) return undefined
+    const motionAllowed = window.matchMedia('(prefers-reduced-motion: no-preference)')
+    if (!motionAllowed.matches) return undefined
 
     let cancelled = false
     let context

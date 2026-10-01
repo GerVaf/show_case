@@ -180,9 +180,9 @@ export default function HomePage() {
               key={label}
             >
               <span className="eyebrow text-ink-faint transition-colors group-hover:text-paper/60 group-focus-visible:text-paper/60">{label}</span>
-              <span className="flex items-center justify-between gap-3 font-display text-base font-medium tracking-[-0.025em] sm:text-lg">
+              <span className="flex items-center justify-between gap-3 font-display text-base font-medium tracking-[-0.025em] transition-colors group-hover:text-paper group-focus-visible:text-paper sm:text-lg">
                 {value}
-                <ArrowUpRightIcon aria-hidden="true" className="shrink-0 text-blue" size={14} weight="bold" />
+                <ArrowUpRightIcon aria-hidden="true" className="shrink-0 text-blue transition-colors group-hover:text-paper group-focus-visible:text-paper" size={14} weight="bold" />
               </span>
             </a>
           ))}
