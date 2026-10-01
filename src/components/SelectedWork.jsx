@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ArrowUpRightIcon } from '@phosphor-icons/react/ArrowUpRight'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { m } from 'framer-motion'
 import { filters, projects } from '../data/portfolio.js'
@@ -93,13 +94,14 @@ function ProjectCard({ project }) {
           <div className={`flex flex-wrap gap-x-5 gap-y-3 font-mono text-[10px] uppercase tracking-[0.14em] ${project.featured ? 'md:justify-end' : ''}`}>
             {project.links.map((link, index) => (
               <a
-                className={`project-link ${index > 0 ? 'opacity-65 hover:opacity-100' : ''}`}
+                className={`project-link inline-flex items-center gap-1 ${index > 0 ? 'opacity-65 hover:opacity-100' : ''}`}
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
                 key={link.href}
               >
-                {link.label} ↗
+                {link.label}
+                <ArrowUpRightIcon aria-hidden="true" size={11} weight="bold" />
               </a>
             ))}
           </div>

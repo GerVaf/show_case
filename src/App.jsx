@@ -1,4 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
+import { ArrowUpRightIcon } from '@phosphor-icons/react/ArrowUpRight'
 import {
   AnimatePresence,
   domAnimation,
@@ -83,7 +84,10 @@ function Header() {
         <nav className="flex items-center gap-5 font-mono text-[10px] uppercase tracking-[0.14em] md:gap-8" aria-label="Main navigation">
           <NavLink to="/work" className={navClass} onPointerEnter={loadWorkPage} onFocus={loadWorkPage}>Selected</NavLink>
           <NavLink to="/about" className={navClass} onPointerEnter={loadAboutPage} onFocus={loadAboutPage}>Story</NavLink>
-          <a className="nav-link hidden sm:block" href="https://github.com/GerVaf" target="_blank" rel="noreferrer">GitHub ↗</a>
+          <a className="nav-link hidden items-center gap-1 sm:inline-flex" href="https://github.com/GerVaf" target="_blank" rel="noreferrer">
+            GitHub
+            <ArrowUpRightIcon aria-hidden="true" size={11} weight="bold" />
+          </a>
         </nav>
       </div>
     </header>
@@ -115,9 +119,15 @@ function Footer() {
       <div className="flex flex-col gap-4 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted sm:flex-row sm:items-center sm:justify-between">
         <p>© {currentYear} Thant Zin Min</p>
         <div className="flex flex-wrap gap-x-5 gap-y-2">
-          <a className="hover:text-ink" href="https://justlwint.com" target="_blank" rel="noreferrer">Just Lwint ↗</a>
-          <a className="hover:text-ink" href="https://github.com/GerVaf" target="_blank" rel="noreferrer">GitHub ↗</a>
-          <a className="hover:text-ink" href="mailto:hello@thantzinmin.cloud">hello@thantzinmin.cloud ↗</a>
+          <a className="inline-flex items-center gap-1 hover:text-ink" href="https://justlwint.com" target="_blank" rel="noreferrer">
+            Just Lwint <ArrowUpRightIcon aria-hidden="true" size={11} weight="bold" />
+          </a>
+          <a className="inline-flex items-center gap-1 hover:text-ink" href="https://github.com/GerVaf" target="_blank" rel="noreferrer">
+            GitHub <ArrowUpRightIcon aria-hidden="true" size={11} weight="bold" />
+          </a>
+          <a className="inline-flex items-center gap-1 hover:text-ink" href="mailto:hello@thantzinmin.cloud">
+            hello@thantzinmin.cloud <ArrowUpRightIcon aria-hidden="true" size={11} weight="bold" />
+          </a>
         </div>
       </div>
     </footer>

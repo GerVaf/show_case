@@ -1,7 +1,11 @@
 import { useRef } from 'react'
+import { ArrowDownRightIcon } from '@phosphor-icons/react/ArrowDownRight'
+import { ArrowRightIcon } from '@phosphor-icons/react/ArrowRight'
+import { ArrowUpRightIcon } from '@phosphor-icons/react/ArrowUpRight'
 import { m, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import CapabilityIndex from '../components/CapabilityIndex.jsx'
+import PerformanceRail from '../components/PerformanceRail.jsx'
 import Portrait from '../components/Portrait.jsx'
 import SelectedWork from '../components/SelectedWork.jsx'
 import ThroughLineGraphic from '../components/ThroughLineGraphic.jsx'
@@ -65,7 +69,10 @@ export default function HomePage() {
                   Managing Director &amp; Board Member · Just Lwint Company Limited
                 </p>
               </div>
-              <Link to="/work" className="button-primary shrink-0">Explore the work <span aria-hidden="true">↘</span></Link>
+              <Link to="/work" className="button-primary shrink-0">
+                Explore the work
+                <ArrowDownRightIcon aria-hidden="true" size={12} weight="bold" />
+              </Link>
             </div>
           </div>
 
@@ -121,43 +128,7 @@ export default function HomePage() {
         ))}
       </section>
 
-      <section className="defer-section page-shell border-x border-t border-ink/20 px-5 py-20 md:px-8 md:py-28">
-        <div className="mb-14 grid gap-6 md:grid-cols-[1fr_1.5fr] md:items-end">
-          <p className="eyebrow">More than a job title</p>
-          <h2 className="font-display text-5xl leading-[0.9] font-semibold uppercase tracking-[-0.055em] md:text-7xl">How Vixx Grego performs.</h2>
-        </div>
-        <m.div
-          className="mb-10 h-px origin-left bg-blue"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true, margin: '0px 0px -80px' }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        />
-        <div className="grid gap-px border border-ink/25 bg-ink/25 md:grid-cols-2">
-          {[
-            ['Lead', 'Set direction, make decisions, and carry responsibility as Managing Director and a Board member at Just Lwint.'],
-            ['Build', 'Move from an idea to working software across web, mobile, commerce, and product systems.'],
-            ['Shape', 'Connect visual identity, story, technology, and operations into one coherent brand experience.'],
-            ['Explore', 'Keep learning in public through 60 repositories, experiments, collaborations, and new ventures.'],
-          ].map(([title, copy], index) => (
-            <m.article
-              key={title}
-              className="archive-rule bg-paper p-6 pl-9 md:p-9 md:pl-12"
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.25 }}
-              transition={{ duration: 0.5, delay: index * 0.055, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="mb-16 flex items-center justify-between">
-                <span className="eyebrow">0{index + 1}</span>
-                <span className="size-2 rounded-full bg-ink" />
-              </div>
-              <h3 className="font-display text-4xl font-semibold uppercase tracking-[-0.045em]">{title}</h3>
-              <p className="mt-4 max-w-lg leading-relaxed text-ink-muted">{copy}</p>
-            </m.article>
-          ))}
-        </div>
-      </section>
+      <PerformanceRail />
 
       <CapabilityIndex />
 
@@ -178,7 +149,10 @@ export default function HomePage() {
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
             From early web experiments to the connected ownership experience behind Just Lwint, the work has always been about moving an idea into the real world—and taking responsibility for how it performs there.
           </p>
-          <Link className="button-outline mt-10" to="/about">Read my story <span aria-hidden="true">→</span></Link>
+          <Link className="button-outline mt-10" to="/about">
+            Read my story
+            <ArrowRightIcon aria-hidden="true" size={12} weight="bold" />
+          </Link>
         </div>
       </section>
 
@@ -187,10 +161,11 @@ export default function HomePage() {
         <a className="contact-link" href="mailto:hello@thantzinmin.cloud">Let’s talk.</a>
         <div>
           <a
-            className="mt-7 inline-block font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted underline decoration-ink/30 underline-offset-4 transition-colors hover:text-blue focus-visible:text-blue"
+            className="mt-7 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-[0.16em] text-ink-muted underline decoration-ink/30 underline-offset-4 transition-colors hover:text-blue focus-visible:text-blue"
             href="mailto:hello@thantzinmin.cloud"
           >
-            hello@thantzinmin.cloud ↗
+            hello@thantzinmin.cloud
+            <ArrowUpRightIcon aria-hidden="true" size={11} weight="bold" />
           </a>
         </div>
       </section>

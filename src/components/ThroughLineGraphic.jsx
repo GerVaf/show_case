@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { m, useInView, useReducedMotion } from 'framer-motion'
+import { useMotionPath } from '../hooks/useMotionPath.js'
 
 const milestones = [
   ['2021', 'Learn', 'COVID / self-start'],
@@ -14,9 +15,24 @@ const nodeY = [52, 157, 262, 367]
 
 export default function ThroughLineGraphic({ className = '' }) {
   const rootRef = useRef(null)
+  const svgRef = useRef(null)
+  const routeRef = useRef(null)
+  const travelerRef = useRef(null)
   const reduceMotion = useReducedMotion()
   const isInView = useInView(rootRef, { once: true, amount: 0.25 })
   const reveal = reduceMotion || isInView
+
+  useMotionPath({
+    active: isInView,
+    delay: 0.18,
+    duration: 1.7,
+    fadeOut: false,
+    pathRef: routeRef,
+    reduceMotion,
+    repeat: 0,
+    scopeRef: svgRef,
+    travelerRef,
+  })
 
   return (
     <div ref={rootRef} className={`relative min-h-[21rem] overflow-hidden ${className}`}>
@@ -25,6 +41,7 @@ export default function ThroughLineGraphic({ className = '' }) {
       </span>
 
       <svg
+        ref={svgRef}
         className="absolute inset-0 h-full w-full"
         viewBox="0 0 400 420"
         preserveAspectRatio="none"
@@ -35,7 +52,7 @@ export default function ThroughLineGraphic({ className = '' }) {
           <path key={y} d={`M22 ${y}H378`} stroke="currentColor" strokeWidth="1" opacity="0.12" />
         ))}
         <path d="M22 18V402M148 18V402M274 18V402M378 18V402" stroke="currentColor" strokeWidth="1" opacity="0.08" />
-        <path d={route} stroke="currentColor" strokeWidth="1.25" opacity="0.28" />
+        <path ref={routeRef} d={route} stroke="currentColor" strokeWidth="1.25" opacity="0.28" />
         <m.path
           d={route}
           stroke="var(--color-blue, #1c24b5)"
@@ -62,15 +79,10 @@ export default function ThroughLineGraphic({ className = '' }) {
           </g>
         ))}
 
-        <m.circle
-          r="4.5"
-          fill="var(--color-blue, #1c24b5)"
-          initial={false}
-          animate={reveal
-            ? { cx: nodeX, cy: nodeY, opacity: [0, 1, 1, 1] }
-            : { cx: nodeX[0], cy: nodeY[0], opacity: 0 }}
-          transition={{ duration: reduceMotion ? 0 : 1.7, delay: reduceMotion ? 0 : 0.18, ease: [0.22, 1, 0.36, 1] }}
-        />
+        <g ref={travelerRef} opacity="0">
+          <circle r="5.5" fill="var(--color-blue, #1c24b5)" />
+          <path d="M-1.7-2.2L2.3 0L-1.7 2.2Z" fill="var(--color-paper, #efede8)" opacity="0.9" />
+        </g>
       </svg>
 
       <ol className="absolute inset-y-0 right-4 left-[34%] grid grid-rows-4 md:right-6">

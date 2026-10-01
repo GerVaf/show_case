@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { ArrowRightIcon } from '@phosphor-icons/react/ArrowRight'
 import { m, useInView, useReducedMotion } from 'framer-motion'
 import Portrait from './Portrait.jsx'
 
@@ -123,7 +124,10 @@ export default function EvidencePortrait({ className = '' }) {
 
         <div className="flex items-center justify-between border-t border-ink/20 px-4 py-3 font-mono text-[8px] tracking-[0.14em] uppercase">
           <span>COVID / Self-start</span>
-          <span className="text-blue">Day one →</span>
+          <span className="inline-flex items-center gap-1 text-blue">
+            Day one
+            <ArrowRightIcon aria-hidden="true" size={10} weight="bold" />
+          </span>
         </div>
       </m.div>
     </div>

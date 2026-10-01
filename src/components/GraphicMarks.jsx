@@ -1,5 +1,6 @@
 import { useId, useRef } from 'react'
 import { m, useInView, useReducedMotion } from 'framer-motion'
+import { useMotionPath } from '../hooks/useMotionPath.js'
 
 const cobalt = 'var(--color-blue, #1c24b5)'
 const ease = [0.22, 1, 0.36, 1]
@@ -100,9 +101,20 @@ export function RouteMark({
 }) {
   const reduceMotion = useReducedMotion()
   const svgRef = useRef(null)
+  const routeRef = useRef(null)
+  const travelerRef = useRef(null)
   const isInView = useInView(svgRef, { amount: 0.15 })
   const { isDecorative, titleId, svgA11yProps } = useGraphicMarkA11y(decorative)
   const route = 'M24 138C62 138 64 66 108 66C152 66 150 118 194 118C238 118 245 44 288 44C318 44 324 70 342 70'
+
+  useMotionPath({
+    active: isInView,
+    duration: 5.4,
+    pathRef: routeRef,
+    reduceMotion,
+    scopeRef: svgRef,
+    travelerRef,
+  })
 
   return (
     <svg
@@ -119,7 +131,7 @@ export function RouteMark({
 
       <path d="M24 22V158M108 22V158M194 22V158M288 22V158M342 22V158" stroke="currentColor" strokeWidth="1" opacity="0.12" />
       <path d="M12 158H354" stroke="currentColor" strokeWidth="1" opacity="0.22" />
-      <path d={route} stroke="currentColor" strokeWidth="1.25" opacity="0.42" />
+      <path ref={routeRef} d={route} stroke="currentColor" strokeWidth="1.25" opacity="0.42" />
 
       <m.path
         d={route}
@@ -152,23 +164,10 @@ export function RouteMark({
         </g>
       ))}
 
-      <m.circle
-        cx="24"
-        cy="138"
-        r="4"
-        fill={accent}
-        initial={false}
-        animate={reduceMotion || !isInView
-          ? { cx: 342, cy: 70, opacity: 1 }
-          : {
-              cx: [24, 108, 194, 288, 342],
-              cy: [138, 66, 118, 44, 70],
-              opacity: [0, 1, 1, 1, 0],
-            }}
-        transition={reduceMotion || !isInView
-          ? { duration: 0 }
-          : { duration: 5.4, times: [0, 0.27, 0.53, 0.79, 1], ease: 'easeInOut', repeat: Infinity }}
-      />
+      <g ref={travelerRef} opacity="0">
+        <circle r="5" fill={accent} />
+        <path d="M-1.6-2.1L2.2 0L-1.6 2.1Z" fill="var(--color-ink, #181816)" opacity="0.82" />
+      </g>
     </svg>
   )
 }
