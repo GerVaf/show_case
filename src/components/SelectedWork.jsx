@@ -51,10 +51,11 @@ function ProjectCard({ project }) {
     dark: 'bg-ink text-paper',
     mid: 'bg-stone text-ink',
   }
+  const isWide = project.featured || project.wide
 
   return (
     <m.article
-      className={`${toneClasses[project.tone]} ${project.featured ? 'md:col-span-2' : ''} project-card group flex min-h-[31rem] flex-col justify-between p-6 md:p-8`}
+      className={`${toneClasses[project.tone]} ${isWide ? 'md:col-span-2' : ''} project-card group flex min-h-[31rem] flex-col justify-between p-6 md:p-8`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
@@ -81,17 +82,17 @@ function ProjectCard({ project }) {
         </div>
       )}
 
-      <div className={project.featured ? 'grid gap-8 md:grid-cols-[1fr_1fr] md:items-end' : ''}>
+      <div className={isWide ? 'grid gap-8 md:grid-cols-[1fr_1fr] md:items-end' : ''}>
         <div>
           <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.18em] opacity-65">{project.type}</p>
           {!project.featured && <h3 className="font-display text-4xl font-semibold uppercase tracking-[-0.04em]">{project.title}</h3>}
           <p className="mt-4 max-w-xl text-sm leading-relaxed opacity-75 md:text-base">{project.summary}</p>
         </div>
-        <div className={`mt-8 flex flex-col gap-6 ${project.featured ? 'md:mt-0 md:items-end' : ''}`}>
+        <div className={`mt-8 flex flex-col gap-6 ${isWide ? 'md:mt-0 md:items-end' : ''}`}>
           <ul className="flex flex-wrap gap-2" aria-label="Technologies and capabilities">
             {project.tech.map((item) => <li key={item} className="project-tag">{item}</li>)}
           </ul>
-          <div className={`flex flex-wrap gap-x-5 gap-y-3 font-mono text-[10px] uppercase tracking-[0.14em] ${project.featured ? 'md:justify-end' : ''}`}>
+          <div className={`flex flex-wrap gap-x-5 gap-y-3 font-mono text-[10px] uppercase tracking-[0.14em] ${isWide ? 'md:justify-end' : ''}`}>
             {project.links.map((link, index) => (
               <a
                 className={`project-link inline-flex items-center gap-1 ${index > 0 ? 'opacity-65 hover:opacity-100' : ''}`}

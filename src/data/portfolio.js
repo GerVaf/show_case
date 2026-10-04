@@ -41,6 +41,20 @@ export const projects = [
     tech: ['HTML + CSS + JS', 'Responsive UI', 'Conversion flows'],
     tone: 'mid',
   },
+  {
+    number: '04',
+    title: 'Bagan Basil',
+    category: 'Platform',
+    type: 'Restaurant menu + ordering experience',
+    year: 'Live',
+    summary: 'A live restaurant menu and ordering experience shaped around real customer and service flows. I helped turn the ordering journey into a focused, responsive product.',
+    links: [
+      { label: 'Live experience', href: 'https://demodomi.xyz' },
+    ],
+    tech: ['React + Vite', 'Ordering flows', 'Cloudflare Turnstile'],
+    tone: 'light',
+    wide: true,
+  },
 ]
 
 export const filters = ['All', 'Flagship', 'Platform']

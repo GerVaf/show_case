@@ -33,12 +33,12 @@ export default function PrivateArchive() {
     <section className="defer-section page-shell border-x border-t border-ink/20 px-5 py-20 md:px-8 md:py-28">
       <div className="grid overflow-hidden border border-ink/25 lg:grid-cols-[0.85fr_1.15fr]">
         <div className="relative min-h-[31rem] overflow-hidden bg-ink p-7 text-paper md:p-10 lg:min-h-full">
-          <p className="eyebrow">Private archive / Metadata only</p>
+          <p className="eyebrow">ProductXx / Private metadata</p>
           <h2 className="mt-9 max-w-lg font-display text-5xl leading-[0.88] font-semibold uppercase tracking-[-0.06em] md:text-7xl">
             Built quietly.
           </h2>
           <p className="mt-7 max-w-md leading-relaxed text-paper/70">
-            The repositories stay private. The range does not: four original builds across communication, operations, commerce, and identity.
+            Selected ProductXx repositories stay private. Their range does not: four builds across communication, operations, commerce, and identity.
           </p>
 
           <RouteMark className="absolute right-0 bottom-0 w-[34rem] max-w-[115%] translate-x-12 text-paper/55" accent="#efede8" />

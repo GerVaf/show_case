@@ -1,6 +1,6 @@
 # Thant Zin Min / Vixx Grego — Personal Portfolio
 
-The personal showcase of Thant Zin Min, aka Vixx Grego: identity, story, leadership, public building history, and live products led by the Flutter-powered Just Lwint company ecosystem.
+The personal showcase of Thant Zin Min, aka Vixx Grego: identity, story, founder journey, public building history, and live products led by the Flutter-powered Just Lwint company ecosystem.
 
 ## Stack
 
@@ -38,7 +38,7 @@ npm run preview  # Preview the production build
 ## Content structure
 
 - `src/pages/HomePage.jsx` — identity, modes of performance, featured outcomes
-- `src/pages/AboutPage.jsx` — personal story and timeline beginning in 2021 during COVID
+- `src/pages/AboutPage.jsx` — chronological personal story from school and university through work, leadership, and the next education chapter
 - `src/pages/WorkPage.jsx` — selected evidence and public archive
 - `src/components/PrivateArchive.jsx` — metadata-safe summary of private builds
 - `src/data/portfolio.js` — project information and links

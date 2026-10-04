@@ -8,26 +8,26 @@ import './PerformanceRail.css'
 const modes = [
   {
     title: 'Lead',
-    copy: 'Set direction. Carry the outcome.',
-    note: 'MD / Board / Product',
+    copy: 'Start with intent. Own what follows.',
+    note: 'Founder / Direction / Responsibility',
     Icon: StrategyIcon,
   },
   {
     title: 'Build',
-    copy: 'Move ideas into working products.',
-    note: 'React / Flutter / Systems',
+    copy: 'Turn an idea into something people can use.',
+    note: 'Web / Mobile / Systems',
     Icon: BracketsCurlyIcon,
   },
   {
     title: 'Shape',
-    copy: 'Make brand and technology feel whole.',
+    copy: 'Make product, brand, and story feel like one.',
     note: 'Identity / Interface / Experience',
     Icon: BezierCurveIcon,
   },
   {
-    title: 'Explore',
-    copy: 'Test the unknown. Keep what works.',
-    note: 'Research / Experiments / Ventures',
+    title: 'Adapt',
+    copy: 'When the plan changes, find the next useful move.',
+    note: 'Self-learning / Work / What is next',
     Icon: CompassIcon,
   },
 ]
@@ -53,7 +53,10 @@ export default function PerformanceRail() {
 
     let cancelled = false
     let context
+    let media
     let observer
+    let resizeObserver
+    let refreshFrame = 0
 
     async function mountRail() {
       const [{ gsap }, { ScrollTrigger }] = await Promise.all([
@@ -67,30 +70,76 @@ export default function PerformanceRail() {
 
       const getDistance = () => Math.max(0, track.scrollWidth - viewport.clientWidth)
       const getHeaderHeight = () => document.querySelector('.site-header')?.offsetHeight ?? 80
+      const cards = Array.from(track.querySelectorAll('.performance-card'))
+      let activeIndex = -1
+
+      const setActiveCard = (nextIndex) => {
+        if (nextIndex === activeIndex) return
+        cards[activeIndex]?.classList.remove('is-active')
+        cards[nextIndex]?.classList.add('is-active')
+        activeIndex = nextIndex
+      }
 
       section.classList.add('is-gsap-active')
+      viewport.scrollLeft = 0
       context = gsap.context(() => {
         gsap.set(progress, { scaleX: 0 })
-        gsap.to(track, {
-          x: () => -getDistance(),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: pin,
-            pin: true,
-            start: () => `top ${getHeaderHeight()}px`,
-            end: () => `+=${getDistance()}`,
-            scrub: 0.65,
-            invalidateOnRefresh: true,
-            anticipatePin: 1,
-            onUpdate: ({ progress: value }) => {
-              gsap.set(progress, { scaleX: value })
-            },
+        const setProgress = gsap.quickSetter(progress, 'scaleX')
+        setActiveCard(0)
+
+        media = gsap.matchMedia()
+        media.add(
+          {
+            desktop: '(min-width: 1024px)',
+            mobile: '(max-width: 1023px)',
           },
-        })
+          ({ conditions }) => {
+            viewport.scrollLeft = 0
+            gsap.set(track, { x: 0, force3D: true })
+
+            const tween = gsap.to(track, {
+              x: () => -getDistance(),
+              force3D: true,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: section,
+                pin,
+                start: () => `top ${getHeaderHeight()}px`,
+                end: () => `+=${Math.max(getDistance(), viewport.clientWidth * 0.9)}`,
+                scrub: conditions.mobile ? 0.25 : 0.55,
+                invalidateOnRefresh: true,
+                anticipatePin: 1,
+                onUpdate: ({ progress: value }) => {
+                  setProgress(value)
+                  setActiveCard(Math.min(cards.length - 1, Math.round(value * (cards.length - 1))))
+                },
+              },
+            })
+
+            return () => {
+              tween.scrollTrigger?.kill()
+              tween.kill()
+              gsap.set(track, { clearProps: 'transform' })
+              setProgress(0)
+              setActiveCard(0)
+            }
+          },
+        )
       }, section)
 
+      const scheduleRefresh = () => {
+        window.cancelAnimationFrame(refreshFrame)
+        refreshFrame = window.requestAnimationFrame(() => ScrollTrigger.refresh())
+      }
+
+      if ('ResizeObserver' in window) {
+        resizeObserver = new ResizeObserver(scheduleRefresh)
+        resizeObserver.observe(viewport)
+        resizeObserver.observe(track)
+      }
+
       document.fonts?.ready.then(() => {
-        if (!cancelled) ScrollTrigger.refresh()
+        if (!cancelled) scheduleRefresh()
       })
     }
 
@@ -109,8 +158,12 @@ export default function PerformanceRail() {
     return () => {
       cancelled = true
       observer?.disconnect()
+      resizeObserver?.disconnect()
+      window.cancelAnimationFrame(refreshFrame)
+      media?.revert()
       context?.revert()
       section.classList.remove('is-gsap-active')
+      track.querySelectorAll('.is-active').forEach((card) => card.classList.remove('is-active'))
     }
   }, [])
 
@@ -119,7 +172,7 @@ export default function PerformanceRail() {
       <div ref={pinRef} className="performance-pin">
         <header className="performance-heading">
           <div>
-            <p className="eyebrow text-ink-faint">One practice / Four modes</p>
+            <p className="eyebrow text-ink-faint">One person / Four working modes</p>
             <h2 id="performance-title" className="performance-title">How I perform.</h2>
           </div>
           <div className="performance-index" aria-hidden="true">

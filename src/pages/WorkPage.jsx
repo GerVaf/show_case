@@ -10,7 +10,7 @@ export default function WorkPage() {
         index="01"
         eyebrow="Selected projects"
         title="Production work, not concepts."
-        copy="These are live products I wrote and shaped: a Flutter commerce and ownership app, two service platforms, and the brand systems around them. Just Lwint is the fullest expression of how I lead and build."
+        copy="Live products I built or helped shape: a Flutter commerce and ownership ecosystem, service platforms, and a restaurant ordering experience. Just Lwint is the fullest expression of how I lead and build."
       />
       <SelectedWork />
       <PrivateArchive />

@@ -88,16 +88,16 @@ export default function EvidencePortrait({ className = '' }) {
         transition={{ duration: reduceMotion ? 0 : 0.7, delay: reduceMotion ? 0 : 0.38, ease }}
       >
         <div className="flex items-center justify-between border-b border-ink/20 px-4 py-3 font-mono text-[8px] tracking-[0.15em] uppercase">
-          <span>Origin record / Learning</span>
+          <span>Tech record / Learning</span>
           <span className="text-blue">File open</span>
         </div>
 
         <div className="grid min-h-32 grid-cols-3">
-          <CalendarCell label="Before" value="2020" />
+          <CalendarCell label="University" value="UCSM" />
           <div className="relative flex flex-col justify-center border-x border-ink/20 px-3 py-4">
-            <span className="font-mono text-[8px] tracking-[0.14em] text-ink-faint uppercase">Origin</span>
+            <span className="font-mono text-[8px] tracking-[0.14em] text-ink-faint uppercase">Shift</span>
             <span className="mt-1 font-display text-4xl leading-none tracking-[-0.07em]">2021</span>
-            <span className="mt-2 font-display text-[11px] leading-none font-semibold uppercase">Started learning</span>
+            <span className="mt-2 font-display text-[11px] leading-none font-semibold uppercase">Tech chapter</span>
             <svg className="pointer-events-none absolute -inset-2 h-[calc(100%+1rem)] w-[calc(100%+1rem)]" viewBox="0 0 170 150" fill="none" aria-hidden="true">
               <m.path
                 d="M150 70C151 111 123 137 82 136C38 134 14 111 18 71C22 29 50 10 91 15C130 19 153 37 150 70Z"
@@ -123,9 +123,9 @@ export default function EvidencePortrait({ className = '' }) {
         </div>
 
         <div className="flex items-center justify-between border-t border-ink/20 px-4 py-3 font-mono text-[8px] tracking-[0.14em] uppercase">
-          <span>COVID / Self-start</span>
+          <span>Pause / Self-start</span>
           <span className="inline-flex items-center gap-1 text-blue">
-            Day one
+            Kept moving
             <ArrowRightIcon aria-hidden="true" size={10} weight="bold" />
           </span>
         </div>

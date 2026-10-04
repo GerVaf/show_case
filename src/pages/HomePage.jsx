@@ -66,7 +66,7 @@ export default function HomePage() {
                   I turn ideas into companies, products, brand worlds, and technology people can actually use.
                 </p>
                 <p className="mt-3 max-w-xl font-mono text-[10px] uppercase leading-relaxed tracking-[0.13em] text-ink-faint">
-                  Managing Director &amp; Board Member · Just Lwint Company Limited
+                  Founder · Just Lwint Company Limited
                 </p>
               </div>
               <Link to="/work" className="button-primary shrink-0">
