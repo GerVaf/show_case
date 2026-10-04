@@ -22,8 +22,9 @@ export default function AboutPage() {
           <div>
             <p className="eyebrow mb-8">My story</p>
             <div className="space-y-6 text-lg leading-relaxed text-ink-muted md:text-xl">
-              <p>I’m Thant Zin Min, also known as Vixx Grego. I graduated from YE-U Gant Gaw Private School, then attended the University of Computer Studies (Mandalay), where I completed and passed my second year in Computer Science and Technology.</p>
-              <p>When COVID interrupted university, I used the break to build a new direction. I began learning technology independently, completed formal web training, and turned that work into professional experience at Ex;braiN and then one year with Digital Copilot Myanmar.</p>
+              <p>I’m Thant Zin Min, also known as Vixx Grego. I graduated from YE-U Gant Gaw Private School, then began Computer Science and Technology at the University of Computer Studies (Mandalay) in the 2018–2019 academic year.</p>
+              <p>Between my first and second university years, I worked hard to build a professional direction. I learned technology independently, completed formal web training, worked for one year at Ex;braiN, and continued for one year with Digital Copilot Myanmar.</p>
+              <p>I returned to UCS Mandalay in the 2024–2025 academic year and completed and passed my second year. The gap in the records was not an empty one—it became the period in which I learned, worked, and grew my career.</p>
               <p>Today, I am the founder of Just Lwint Company Limited, working across product, technology, brand, and company direction. I am continuing to grow professionally while working toward continuing my university education in Taiwan.</p>
             </div>
           </div>
@@ -31,7 +32,7 @@ export default function AboutPage() {
           <dl className="grid gap-px border border-ink/25 bg-ink/25 font-mono text-[10px] uppercase tracking-[0.12em] sm:grid-cols-2">
             {[
               ['Based in', 'Yangon, Myanmar'],
-              ['Education', 'UCS Mandalay · Passed second year'],
+              ['Education', 'UCS Mandalay · Passed year two (2024–25)'],
               ['Current role', 'Founder · Just Lwint'],
               ['Working toward', 'University in Taiwan'],
             ].map(([term, value]) => (
@@ -52,7 +53,7 @@ export default function AboutPage() {
           </div>
           <div>
             <h2 className="font-display text-4xl leading-[0.95] font-semibold uppercase tracking-[-0.05em] md:text-6xl">Not a straight line.<br />Still moving forward.</h2>
-            <p className="mt-6 max-w-2xl leading-relaxed text-ink-muted">Each chapter changed the next one. The dates matter, but so does what I chose to do with the interruption between them.</p>
+            <p className="mt-6 max-w-2xl leading-relaxed text-ink-muted">The years between my first and second academic records were not empty. They became the years in which I learned, worked, and built my career.</p>
           </div>
         </div>
 
