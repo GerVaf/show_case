@@ -36,16 +36,16 @@ export const storyTimeline = [
     text: 'I spent one year on the software-development team, turning self-directed practice into professional work and strengthening my problem-solving and collaboration.',
   },
   {
-    period: 'Between academic years · One year',
+    period: 'One year · 3 months on-site, then remote',
     chapter: 'Professional growth',
     place: 'Digital Copilot Myanmar',
-    text: 'Following Ex;braiN, I worked for one year at Digital Copilot Myanmar. I kept improving my craft, learning how teams deliver, and building a stronger career during the university break.',
+    text: 'I worked on-site for the first three months and from home for the remainder of the role. The remote period overlapped with my return to university for my second academic year.',
   },
   {
     period: '2024—2025',
     chapter: 'University · Second year passed',
     place: 'University of Computer Studies (Mandalay)',
-    text: 'I returned to university and completed and passed my second year in Computer Science and Technology. The years between my first and second academic records became years of serious learning, work, and career growth.',
+    text: 'I returned in the 2024–2025 academic year and completed and passed my second year in Computer Science and Technology. Part of that year overlapped with my remote work for Digital Copilot Myanmar.',
   },
   {
     period: '2025—Now',

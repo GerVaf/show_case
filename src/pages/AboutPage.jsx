@@ -23,8 +23,8 @@ export default function AboutPage() {
             <p className="eyebrow mb-8">My story</p>
             <div className="space-y-6 text-lg leading-relaxed text-ink-muted md:text-xl">
               <p>I’m Thant Zin Min, also known as Vixx Grego. I graduated from YE-U Gant Gaw Private School, then began Computer Science and Technology at the University of Computer Studies (Mandalay) in the 2018–2019 academic year.</p>
-              <p>Between my first and second university years, I worked hard to build a professional direction. I learned technology independently, completed formal web training, worked for one year at Ex;braiN, and continued for one year with Digital Copilot Myanmar.</p>
-              <p>I returned to UCS Mandalay in the 2024–2025 academic year and completed and passed my second year. The gap in the records was not an empty one—it became the period in which I learned, worked, and grew my career.</p>
+              <p>After my first university year, I worked hard to build my career. I learned technology independently, completed formal web training, spent one year at Ex;braiN, and then worked for one year at Digital Copilot Myanmar.</p>
+              <p>At Digital Copilot Myanmar, I worked on-site for the first three months and from home for the remainder of the role. The remote period overlapped with my return to UCS Mandalay in the 2024–2025 academic year, when I completed and passed my second year. The years between those academic records were years of focused learning, professional work, and career growth.</p>
               <p>Today, I am the founder of Just Lwint Company Limited, working across product, technology, brand, and company direction. I am continuing to grow professionally while working toward continuing my university education in Taiwan.</p>
             </div>
           </div>

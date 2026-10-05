@@ -60,7 +60,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-6 border-t border-ink/25 pt-5 xl:flex-row xl:items-end xl:justify-between">
               <div>
                 <p className="font-display max-w-3xl text-2xl leading-tight font-semibold tracking-[-0.035em] md:text-4xl">
-                  I don’t stay <span className="ink-underline">inside one discipline.</span>
+                  I build where <span className="ink-underline">disciplines meet.</span>
                 </p>
                 <p className="mt-5 max-w-2xl text-base leading-relaxed text-ink-muted md:text-lg">
                   I turn ideas into companies, products, brand worlds, and technology people can actually use.
@@ -98,7 +98,7 @@ export default function HomePage() {
               <p className="font-display text-right text-3xl leading-none font-semibold tracking-[-0.055em] uppercase md:text-4xl">Vixx<br />Grego</p>
             </div>
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-black/80 to-transparent p-6 pt-28 text-white">
-              <p className="font-mono text-[9px] uppercase leading-relaxed tracking-[0.17em]">Portrait / 2026<br />Yangon, Myanmar</p>
+              <p className="font-mono text-[9px] uppercase leading-relaxed tracking-[0.17em]">Portrait / Personal archive<br />Yangon, Myanmar</p>
               <span className="stamp stamp-small border-white/70">Building<br />forward</span>
             </div>
           </m.div>
